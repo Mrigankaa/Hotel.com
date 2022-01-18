@@ -14,7 +14,7 @@ CREATE TABLE hotels
     rooms int(11) NOT NULL,
     price INT(11) NOT NULL,
     photo VARCHAR(255),
-    description VARCHAR(255),
+    description VARCHAR(255) ,
     status VARCHAR(255),
     hotel_type VARCHAR(255) NOT NULL
 );
