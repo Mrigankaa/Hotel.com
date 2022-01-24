@@ -5,7 +5,7 @@
 
 <html lang="en">
     <head>
-        <title></title>
+        <title>Hotel.com</title>
         <link rel="stylesheet" href="css/index.css">
     </head>
 

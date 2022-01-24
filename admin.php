@@ -21,7 +21,7 @@
   </div>
   <div class="w3-third w3-padding">
    <a href="addhotel.php" style="text-decoration: none;"><div class="w3-card w3-green w3-padding" style="height: 150px;">
-      <b><h2>Add Room</h2></b>
+      <b><h2>Add Hotel</h2></b>
       <i class="fa fa-list" style="font-size: 75px;"></i> 
       <span style="float: right; font-size: 50px; font-weight: bold;">  
         <?php

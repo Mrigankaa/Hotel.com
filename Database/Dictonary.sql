@@ -1,4 +1,4 @@
-CREATE TABLE user
+CREATE TABLE users
 (
     id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
@@ -21,8 +21,14 @@ CREATE TABLE hotels
 
 CREATE TABLE hotel_book
 (
+    hotel_name varchar(255),
     checkin date NOT NULL,
     checkout date NOT NULL,
-    room INT(11) NOT NULL,
+    people INT(11) NOT NULL,
+    price INT(11),
     address VARCHAR(255) NOT NULL,
+    user_id INT(11),
+    hotel_id INT(11),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (hotel_id) REFERENCES hotels(hotel_id)
 );
