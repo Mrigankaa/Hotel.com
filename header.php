@@ -8,20 +8,28 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="hotel.php"><strong>Hotels</strong></a>
+                    <a class="nav-link" href="hotel.php"><strong>Hotels</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><strong>Contact Us</strong></a>
+                    <a class="nav-link" href="#"><strong>Contact Us</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><strong>About Us</strong></a>
+                    <a class="nav-link" href="#"><strong>About Us</strong></a>
                 </li>
-            </ul>
-            <ul class="navbar-nav">
+            </ul>  
+            <?php if(isset($_SESSION['email'])){ ?>
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="mybooking.php" class="nav-link"><strong>My Bookings</strong></a>
+                </li>
+                </ul>                
+                <?php } ?>               
+            <ul class="navbar-nav">            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"  data-bs-toggle="dropdown"><strong>Account</strong></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                      <?php if(isset($_SESSION['email'])){ 
+                      <?php 
+                          if(isset($_SESSION['email'])){
                           $email = $_SESSION['email'];
                           $sql = "SELECT * from users where email = '$email'";
                           $r = mysqli_query($con,$sql);

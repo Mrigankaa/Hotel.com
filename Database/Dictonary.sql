@@ -21,14 +21,23 @@ CREATE TABLE hotels
 
 CREATE TABLE hotel_book
 (
+    book_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     hotel_name varchar(255),
     checkin date NOT NULL,
     checkout date NOT NULL,
     people INT(11) NOT NULL,
     price INT(11),
     address VARCHAR(255) NOT NULL,
+    status varchar(255),
     user_id INT(11),
     hotel_id INT(11),
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (hotel_id) REFERENCES hotels(hotel_id)
+);
+
+CREATE TABLE payments(
+    upi_id varchar(255),
+    payments_type varchar(20),
+    user_id int(11),
+    FOREIGN KEY(user_id) REFERENCES users(id)
 );

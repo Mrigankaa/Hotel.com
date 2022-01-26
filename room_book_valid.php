@@ -11,22 +11,29 @@
     	$cout=$_REQUEST['checkout'];
 		$sdate=$cin;
 		$edate=$cout;
-		$n= date('Y-m-d');
+		$n=date('Y-m-d');
 		$cin = strtotime($cin);
         $cout = strtotime($cout);
 		$bookedFrom = date('Y-m-d', $cin);
         $bookedUpto = date('Y-m-d', $cout);
         $diff = ceil(($cout - $cin )/(60 * 60 * 24));
-		$room_booked = $people/2 + $people%2;
+		$status = "Unbooked";
+
+		$room_booked = floor($people/2)+$people%2;
 
 		$sql = "UPDATE hotels SET rooms = rooms-$room_booked WHERE hotel_id=$hotel_id";
 		$r = mysqli_query($con,$sql) or die($con);
+
+		$sql3 = "SELECT price from hotels WHERE hotel_id='$hotel_id'";
+		$r3 = mysqli_query($con,$sql3);
+		$result = mysqli_fetch_array($r3);
+		$price = $result[0]*$diff*$room_booked;
 		
-		$sql1 = "SELECT rooms FORM hotels WHERE hotel_id = $hotel_id";
+		$sql1 = "SELECT rooms from hotels WHERE hotel_id=$hotel_id";
 		$r1 = mysqli_query($con,$sql1);	
 		$row = mysqli_fetch_array($r1);
-		if($row[0]==0 && $row[0]<0){
-			$sql2 = "UPDATE hotels SET status = 'Unavalable' WHERE hotel_id = $hotel_id";
+		if($row[0]==0){
+			$sql2 = "UPDATE hotels SET status = 'Unavalable' WHERE hotel_id=$hotel_id";
 			$r2 = mysqli_query($con,$sql2);
 		}
 
@@ -42,11 +49,16 @@
     	}
         else
 		{
-			$sql = "INSERT INTO hotel_book(hotel_name,checkin,checkout,people,price,address,user_id,hotel_id) 
-					VALUES('$hotel_name','$cin','$cout','$people','$address','$price','$user_id','$hotel_id')";
+			$sql = "INSERT INTO hotel_book(hotel_name,checkin,checkout,people,price,address,status,user_id,hotel_id) 
+					VALUES('$hotel_name','$sdate','$edate','$people','$price','$address','$status','$user_id','$hotel_id')";
 			$r = mysqli_query($con,$sql);
-			header("location:hotel.php");
-
+			if(!$r){
+				mysqli_error($con);
+				header("location:hotel.php");
+			}
+			else{
+				header("location:payment.php?hotel_name=$hotel_name&price=$price");
+			}
 		}
 	}
 

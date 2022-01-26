@@ -1,7 +1,7 @@
 <?php
     include("connection.php");
     session_start();
-    if(isset($_SESSION['email'])){        
+    if(isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +23,8 @@
         <div class="card card-body" style="width: 23rem ;">
         <img hotel_id ="'.$row[0].'" src="'.$row[4].'" class="card-img-top">
         <div class="card-body">
-            <h5 class="card-title">'.$row[1].'</h5>
-            <p class="card-text">PRICE:'.$row[3].'</p>
+            <h4 class="card-title">'.$row[1].'</h4>
+            <p class="card-text">Price: ₹'.$row[3].'</p>
             <p>Description: '.$row[5].'</p>
             <a href="book.php?hotel_id='.$row[0].'&hotel_name='.$row[1].'" class="btn btn-primary">Book</a>
         </div>
@@ -45,7 +45,7 @@
         <script>
             window.alert("Please Login/Register First");
         </script>     
-        <meta http-equiv="refresh" content="0;url=register.php" />  
+        <meta http-equiv="refresh" content="0;url=login.php" />  
 <?php
     }
 ?>

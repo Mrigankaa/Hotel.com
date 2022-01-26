@@ -18,6 +18,7 @@
                 <input type="text" name="des" placeholder="Enter description">
                 <input type="text" name="type" placeholder="Enter Hotel type" required/>
                 <button>Add Hotel</button></form><br>
+                <p class="message"><a href="admin.php">Admin Panel</a></p>
         </div>
     </body>
 </html>
