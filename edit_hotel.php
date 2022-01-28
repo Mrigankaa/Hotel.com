@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body>
+<body><br><br>
 <div class="container">
     <table class="table table-light">
     <thead>
@@ -37,11 +37,15 @@
     <td><?php echo $row[5]; ?></td>
     <td><?php echo $row[6]; ?></td>
     <td><?php echo $row[7]; ?></td>
-    <td><a href="remove_hotel.php"><button class="btn btn-primary">Edit</button></a></td>
+    <td><a href="<?php echo 'remove_hotel.php?hotel_id='.$row[0].' '?>"><button class="btn btn-primary">Remove</button></a></td>
 <?php
     }
 ?>
-
+</tr>
+    </table><br>
+<div class="container">
+    <h2 style="text-align: center;"><a class="btn btn-primary" href="admin.php">Admin Pannel</a></h2>
+</div>
 
     
 </body>

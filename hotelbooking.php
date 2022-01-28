@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body>
+<body><br><br>
 <div class="container">
     <table class="table table-light">
     <thead>
@@ -47,9 +47,11 @@
 
 <?php
     }
-?>
-
-
+?></tr>
+    </table>
+<div class="container">
+    <h2 style="text-align: center;"><a class="btn btn-primary" href="admin.php">Admin Pannel</a></h2>
+</div>
     
 </body>
 </html>

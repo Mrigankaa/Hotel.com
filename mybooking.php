@@ -41,7 +41,7 @@
     <td><?php echo $row[5]; ?></td>
     <td><?php echo $row[6]; ?></td>
     <td><?php echo $row[7]; ?></td>
-    <td><a href="<?php echo 'cancel.php' ?>"><button class="btn btn-primary">Cancel</button></a></td>
+    <td><a href="<?php echo 'cancel.php?hotel_id='.$row[9].'&user_id='.$row[8].'&people='.$row[4].' '?>"><button class="btn btn-primary">Cancel</button></a></td>
 
     </tr>
     <?php          

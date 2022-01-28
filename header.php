@@ -11,7 +11,7 @@
                     <a class="nav-link" href="hotel.php"><strong>Hotels</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><strong>Contact Us</strong></a>
+                    <a class="nav-link" href="contact.php"><strong>Contact Us</strong></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><strong>About Us</strong></a>
